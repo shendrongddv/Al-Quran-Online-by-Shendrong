@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button";
 import { Skeleton } from "@/components/ui/skeleton";
 import { Play } from "lucide-react";
 import type { SurahDetail, Surah } from "../types";
+import he from "he";
 
 // Function to parse HTML and apply styles
 function renderArabicText(text: string) {
@@ -102,12 +103,12 @@ export function SurahDetail() {
               </div>
               <div className="text-right">
                 <p className="font-amiri-quran text-3xl leading-loose">
-                  {ayah.ar}
+              {ayah.ar}
                 </p>
               </div>
               <div className="space-y-2 text-muted-foreground">
                 <p className="font-arabic-transliteration text-sm">
-                  {renderArabicText(ayah.tr)}
+                  {he.decode(ayah.tr)}
                 </p>
                 <p>{ayah.idn}</p>
               </div>
