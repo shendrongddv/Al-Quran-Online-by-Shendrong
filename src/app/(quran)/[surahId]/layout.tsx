@@ -11,7 +11,7 @@ export default function SurahIdLayout({
     <div className="container px-4 py-8">
       <div className="flex flex-col gap-8 lg:flex-row">
         {/* Surah List */}
-        <div className="w-full lg:w-80">
+        <div className="w-full lg:w-80 hidden md:flex">
           <div className="rounded-lg border bg-card p-4">
             <Suspense fallback={<Skeleton className="h-[calc(100vh-10rem)]" />}>
               <SurahListSidebar />
@@ -21,7 +21,7 @@ export default function SurahIdLayout({
 
         {/* Surah Detail */}
         <div className="flex-1">
-          <div className="rounded-lg border bg-card p-4">
+          <div className="rounded-lg bg-card pb-4">
             {children}
           </div>
         </div>

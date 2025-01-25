@@ -1,8 +1,8 @@
 import { notFound } from "next/navigation";
 import { Button } from "@/components/ui/button";
-import { ScrollArea } from "@/components/ui/scroll-area";
 import { ChevronLeft, ChevronRight, Play } from "lucide-react";
 import type { SurahDetail } from "../types";
+import he from "he";
 
 async function getSurahDetail(id: string) {
   const res = await fetch(
@@ -24,9 +24,9 @@ export default async function SurahDetailPage({
   const surah = await getSurahDetail(params.surahId);
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-6 h-full">
       {/* Header */}
-      <div className="space-y-4">
+      {/* <div className="space-y-4">
         <div className="flex items-center justify-between">
           <div className="space-y-1">
             <h1 className="text-2xl font-semibold">{surah.nama_latin}</h1>
@@ -43,10 +43,10 @@ export default async function SurahDetailPage({
           className="prose prose-sm max-w-none dark:prose-invert"
           dangerouslySetInnerHTML={{ __html: surah.deskripsi }}
         />
-      </div>
+      </div> */}
 
       {/* Navigation */}
-      <div className="flex items-center justify-between">
+      <div className="flex sticky top-14 bg-background left-0 w-full items-center justify-between">
         {surah.surat_sebelumnya ? (
           <Button
             variant="ghost"
@@ -55,12 +55,21 @@ export default async function SurahDetailPage({
           >
             <a href={`/${surah.surat_sebelumnya.nomor}`}>
               <ChevronLeft className="h-4 w-4" />
-              <span>{surah.surat_sebelumnya.nama_latin}</span>
+              <span className="hidden sm:inline">{surah.surat_sebelumnya.nama_latin}</span>
             </a>
           </Button>
         ) : (
           <div />
         )}
+
+
+          <div className="md:space-y-1 py-2 text-center">
+            <h1 className="text-lg ms:text-2xl font-semibold">{surah.nama_latin}</h1>
+            <p className="text-xs md:text-sm text-muted-foreground">
+              {surah.arti} • {surah.tempat_turun} • {surah.jumlah_ayat} Ayat
+            </p>
+          </div>
+        
 
         {surah.surat_selanjutnya ? (
           <Button
@@ -69,7 +78,7 @@ export default async function SurahDetailPage({
             asChild
           >
             <a href={`/${surah.surat_selanjutnya.nomor}`}>
-              <span>{surah.surat_selanjutnya.nama_latin}</span>
+              <span className="hidden sm:inline">{surah.surat_selanjutnya.nama_latin}</span>
               <ChevronRight className="h-4 w-4" />
             </a>
           </Button>
@@ -79,7 +88,6 @@ export default async function SurahDetailPage({
       </div>
 
       {/* Ayat List */}
-      <ScrollArea className="h-[calc(100vh-24rem)]">
         <div className="space-y-4">
           {surah.ayat.map((ayat) => (
             <div
@@ -98,15 +106,12 @@ export default async function SurahDetailPage({
                 <p className="font-amiri-quran text-2xl leading-[2]">
                   {ayat.ar}
                 </p>
-                <p className="font-arabic text-base leading-[2] text-muted-foreground">
-                  {ayat.tr}
-                </p>
+                <p className="font-arabic text-base leading-[2] text-muted-foreground" dangerouslySetInnerHTML={{ __html: he.decode(ayat.tr) }}/>
               </div>
-              <p className="text-sm">{ayat.idn}</p>
+              <p className="text-sm">{he.decode(ayat.idn)}</p>
             </div>
           ))}
         </div>
-      </ScrollArea>
     </div>
   );
 }

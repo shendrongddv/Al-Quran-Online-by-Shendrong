@@ -1,5 +1,9 @@
 import Link from "next/link";
 import { SearchModal } from "./_components/search-modal";
+import { ThemeToggle } from "@/components/site/theme-toggle";
+import { Button, buttonVariants } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
+import { Github } from "lucide-react";
 
 const QuranLayout = ({ children }: { children: React.ReactNode }) => {
   return (
@@ -17,18 +21,24 @@ const QuranLayout = ({ children }: { children: React.ReactNode }) => {
 
           {/* Search Modal */}
           <div className="flex flex-1 items-center justify-end gap-4 md:justify-center">
-            <SearchModal />
           </div>
 
           {/* Menu */}
-          <nav>
+          <div className="flex items-center justify-center gap-1 sm:gap-2">
+            <SearchModal />
+            <ThemeToggle/>
+
+
             <Link
               href="/about"
-              className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
+              className={cn(buttonVariants({ variant: "outline", size: "icon", className:"h-9 w-9" }))}
             >
-              About
+                <Github className="size-4" />
+              
             </Link>
-          </nav>
+
+
+          </div>
         </div>
       </header>
 
