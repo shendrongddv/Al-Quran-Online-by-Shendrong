@@ -90,6 +90,84 @@ export default function AboutPage() {
           </div>
         </div>
 
+        {/* Challenges & Solutions */}
+        <div className="space-y-6">
+          <h2 className="text-3xl font-bold">Development Journey</h2>
+          <div className="grid gap-6 md:grid-cols-2">
+            <Card>
+              <CardContent className="pt-6">
+                <h3 className="mb-4 text-xl font-semibold">Challenges</h3>
+                <ul className="space-y-4 text-muted-foreground">
+                  <li className="space-y-2">
+                    <p className="font-medium text-foreground">1. Arabic Text Rendering</p>
+                    <p>Ensuring proper rendering of Arabic text with correct typography, 
+                    right-to-left alignment, and maintaining proper font styling across different devices.</p>
+                  </li>
+                  <li className="space-y-2">
+                    <p className="font-medium text-foreground">2. Search Implementation</p>
+                    <p>Creating an efficient search functionality that works across both Arabic and Latin text, 
+                    while maintaining performance with client-side filtering.</p>
+                  </li>
+                  <li className="space-y-2">
+                    <p className="font-medium text-foreground">3. Responsive Layout</p>
+                    <p>Designing a layout that works seamlessly across mobile and desktop, especially 
+                    handling the sidebar navigation and surah list display.</p>
+                  </li>
+                  <li className="space-y-2">
+                    <p className="font-medium text-foreground">4. State Management</p>
+                    <p>Managing search state and navigation while maintaining URL parameters for shareable links 
+                    and browser history.</p>
+                  </li>
+                </ul>
+              </CardContent>
+            </Card>
+
+            <Card>
+              <CardContent className="pt-6">
+                <h3 className="mb-4 text-xl font-semibold">Solutions</h3>
+                <ul className="space-y-4 text-muted-foreground">
+                  <li className="space-y-2">
+                    <p className="font-medium text-foreground">1. Modern Stack Implementation</p>
+                    <p>Utilized Next.js 14 with App Router for optimal performance and SEO. Implemented 
+                    React Server Components where possible to reduce client-side JavaScript.</p>
+                  </li>
+                  <li className="space-y-2">
+                    <p className="font-medium text-foreground">2. Enhanced Search Experience</p>
+                    <p>Implemented a global search modal with Cmd/Ctrl+K shortcut using Shadcn's Command component. 
+                    Added instant search with React Query for data caching.</p>
+                  </li>
+                  <li className="space-y-2">
+                    <p className="font-medium text-foreground">3. Optimized Performance</p>
+                    <p>Used proper suspense boundaries and loading states. Implemented efficient client-side 
+                    navigation and search filtering.</p>
+                  </li>
+                  <li className="space-y-2">
+                    <p className="font-medium text-foreground">4. UI/UX Improvements</p>
+                    <p>Added responsive sidebar that hides on mobile, sticky navigation header, and proper 
+                    loading states. Implemented dark mode support with smooth transitions.</p>
+                  </li>
+                </ul>
+              </CardContent>
+            </Card>
+          </div>
+
+          <Card>
+            <CardContent className="pt-6">
+              <h3 className="mb-4 text-xl font-semibold">Key Learnings</h3>
+              <ul className="list-disc space-y-2 pl-4 text-muted-foreground">
+                <li>Importance of proper component architecture in Next.js applications</li>
+                <li>Effective use of React Server Components and Client Components</li>
+                <li>Implementation of advanced search functionality with keyboard shortcuts</li>
+                <li>Handling bilingual content with proper typography and layout</li>
+                <li>Building responsive layouts that work across all devices</li>
+                <li>Managing application state with URL parameters for better UX</li>
+                <li>Implementing proper loading and error states</li>
+                <li>Optimizing performance with proper data fetching strategies</li>
+              </ul>
+            </CardContent>
+          </Card>
+        </div>
+
         {/* Tech Stack */}
         <div className="space-y-6">
           <h2 className="text-3xl font-bold">Technology Stack</h2>
