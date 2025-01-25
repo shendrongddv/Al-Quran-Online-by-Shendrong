@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { SearchModal } from "./_components/search-modal";
 import { ThemeToggle } from "@/components/site/theme-toggle";
-import { Button, buttonVariants } from "@/components/ui/button";
+import {  buttonVariants } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { Github } from "lucide-react";
 

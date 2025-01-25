@@ -2,7 +2,6 @@ import { notFound } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { ChevronLeft, ChevronRight, Play } from "lucide-react";
 import type { SurahDetail } from "../types";
-import he from "he";
 
 async function getSurahDetail(id: string) {
   const res = await fetch(
@@ -106,9 +105,9 @@ export default async function SurahDetailPage({
                 <p className="font-amiri-quran text-2xl leading-[2]">
                   {ayat.ar}
                 </p>
-                <p className="font-arabic text-base leading-[2] text-muted-foreground" dangerouslySetInnerHTML={{ __html: he.decode(ayat.tr) }}/>
+                <p className="font-arabic text-base leading-[2] text-muted-foreground" dangerouslySetInnerHTML={{ __html: ayat.tr }}/>
               </div>
-              <p className="text-sm">{he.decode(ayat.idn)}</p>
+              <p className="text-sm">{ayat.idn}</p>
             </div>
           ))}
         </div>
