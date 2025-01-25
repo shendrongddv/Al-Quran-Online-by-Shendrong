@@ -133,7 +133,7 @@ export default function AboutPage() {
                   </li>
                   <li className="space-y-2">
                     <p className="font-medium text-foreground">2. Enhanced Search Experience</p>
-                    <p>Implemented a global search modal with Cmd/Ctrl+K shortcut using Shadcn's Command component. 
+                    <p>Implemented a global search modal with Cmd/Ctrl+K shortcut using Shadcn&apos;s Command component. 
                     Added instant search with React Query for data caching.</p>
                   </li>
                   <li className="space-y-2">
